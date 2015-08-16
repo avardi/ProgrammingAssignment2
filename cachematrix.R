@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makCacheMatrix - returns a list of fumctions that operate on a cached matrix.
+## it provides the following functions:
+##      get     --- returns the cached Matrix
+##      set     --- Caches the Matrix and sets the inverse to NULL
+##      setinv  --- Caches the invers of the Matrix
+##      getInv  --- returns the cached matrix inverse
 
-## Write a short comment describing this function
+
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -18,11 +22,14 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## Cachesolve returns the cached inverse of a matrix.
+## If the matrix inverse was never cached before, the inverse will be computed and stored
+
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         inv <- x$getinv()
+        ## Check if the inverse was already cached
         if(!is.null(inv)) {
                 message("getting cached matrix inverse ")
                 return(inv)
